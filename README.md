@@ -2,11 +2,11 @@
 
 ⚠️ **WARNING: This is a Technical Test Implementation Only** ⚠️
 
-A monorepo containing a hospital patient simulator that demonstrates patient status tracking and treatment management through a simple web interface.
+A monorepo containing a Hospital Quarantine Simulator that demonstrates patient status tracking and treatment management through a simple web interface.
 
 ## 📋 Project Overview
 
-This is a Hospital Simulator that helps doctors predict patients' states based on their current conditions and administered drugs. The simulator consists of:
+This is a Hospital Quarantine Simulator that helps doctors predict patients' states based on their current conditions and administered drugs. The simulator consists of:
 
 ### 🏃 Patient States
 - 🤒 F: Fever
@@ -110,95 +110,6 @@ yarn start
 - 🎯 `yarn format` - Format code
 - 📦 `yarn build:lib` - Build the hospital-lib package
 
-## Technical Test Simplifications
-
-For the purpose of this technical test and as per requirements, several simplifications were made:
-
-1. **Monorepo Structure**: All services are in one repository for simplicity. In a real-world scenario:
-   - Each service would be in its own repository
-   - Shared library would be published as an npm package
-   - CI/CD pipelines would be more complex and service-specific
-
-2. **Local Development**: Services run directly on the host machine. In production:
-   - Use Docker containers
-   - Implement container orchestration (Kubernetes)
-   - Set up proper development, staging, and production environments
-
-3. **Authentication**: Not implemented for the test. Production would need:
-   - User authentication
-   - Role-based access control
-   - API security
-   - JWT or session management
-
-4. **Database**: Using in-memory data structures. Production would require:
-   - Proper database implementation (e.g., PostgreSQL)
-   - Data persistence
-   - Backup strategies
-   - Migration management
-
-## Suggested Enhancements for Production
-
-1. **Infrastructure**
-   - Containerization with Docker
-   - Kubernetes deployment
-   - Load balancing
-   - Auto-scaling
-   - Health monitoring
-
-2. **Security**
-   - SSL/TLS implementation
-   - API authentication
-   - Rate limiting
-   - Security headers
-   - Regular security audits
-
-3. **Monitoring & Logging**
-   - ELK stack or similar
-   - Application performance monitoring
-   - Error tracking
-   - Usage analytics
-   - Alerting system
-
-4. **Testing**
-   - Unit tests
-   - Integration tests
-   - End-to-end tests
-   - Load testing
-   - Continuous testing in CI/CD
-
-5. **Development Process**
-   - Proper git workflow
-   - Code review process
-   - Automated deployments
-   - Feature flags
-   - Documentation generation
-
-6. **Data Management**
-   - Database implementation
-   - Caching strategy
-   - Data backup
-   - GDPR compliance
-   - Audit trails
-
-## Features
-
-### Backend (hospital-be)
-- RESTful API endpoints
-- OpenAPI/Swagger documentation
-- Status management
-- Treatment assignment
-
-### Frontend (hospital-fe)
-- Vue.js based UI
-- Real-time status updates
-- Treatment visualization
-- Patient flow tracking
-
-### Shared Library (hospital-lib)
-- Common utilities
-- Shared types
-- Business logic
-
 ## Contributing
 
 1. Create a new branch
@@ -238,7 +149,7 @@ For the purpose of this technical test and as per requirements, several simplifi
    - Backup strategies
    - Migration management
 
-### Suggested Enhancements for Production
+## Suggested Enhancements for Production
 
 1. **Infrastructure**
    - Containerization with Docker
