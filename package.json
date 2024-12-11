@@ -1,0 +1,27 @@
+{
+  "name": "hospital-simulator-challenge",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "workspaces": [
+    "hospital-be",
+    "hospital-fe",
+    "hospital-lib"
+  ],
+  "scripts": {
+    "start": "concurrently \"yarn workspace hospital-be start\" \"yarn workspace hospital-fe dev\"",
+    "start:be": "yarn workspace hospital-be start",
+    "start:fe": "yarn workspace hospital-fe dev",
+    "lint": "yarn workspaces run lint",
+    "lint:fix": "yarn workspaces run lint:fix",
+    "format": "yarn workspaces run format",
+    "setup": "sh ./scripts/setup.sh",
+    "build:lib": "yarn workspace hospital-lib build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "pinia": "^2.3.0"
+  }
+}

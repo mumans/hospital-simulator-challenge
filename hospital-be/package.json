@@ -1,0 +1,29 @@
+{
+  "name": "hospital-be",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "audit": "yarn audit"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "lodash": "^4.17.21",
+    "express-openapi-validator": "^5.3.9",
+    "yaml": "^2.6.1",
+    "hospital-lib": "1.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^8.57.0",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.4.2",
+    "globals": "^13.24.0"
+  }
+}

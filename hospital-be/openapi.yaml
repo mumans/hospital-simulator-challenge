@@ -1,0 +1,74 @@
+openapi: 3.0.3
+info:
+  title: Hospital Backend API
+  description: API for managing hospital patient statuses and drug treatments
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:7200
+    description: Local development server
+
+paths:
+  /patients:
+    get:
+      summary: Get patient statuses
+      description: Returns a comma-separated string of patient statuses
+      operationId: getPatientStatuses
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: string
+                description: Comma-separated list of patient statuses
+                example: 'F,X,T,F'
+              examples:
+                noPatients:
+                  value: ''
+                  summary: No patients
+                multiplePatients:
+                  value: 'F,X,T,D,H'
+                  summary: Multiple patients with different statuses
+      tags:
+        - Patients
+
+  /drugs:
+    get:
+      summary: Get treatment prescription
+      description: Returns a random treatment or combination of treatments
+      operationId: getTreatment
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: string
+                description: Treatment code(s), comma-separated if multiple
+                example: 'I,An'
+              examples:
+                noTreatment:
+                  value: ''
+                  summary: No treatment prescribed
+                singleTreatment:
+                  value: 'As'
+                  summary: Single treatment
+                combinedTreatment:
+                  value: 'P,As'
+                  summary: Combined treatment
+      tags:
+        - Treatments
+
+components:
+  schemas: {}
+
+tags:
+  - name: Patients
+    description: Patient status operations
+  - name: Treatments
+    description: Treatment prescriptions
+
+externalDocs:
+  description: Additional Documentation
+  url: https://github.com/yourusername/hospital-be
