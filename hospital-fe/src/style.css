@@ -1,0 +1,448 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  padding: 2em;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.state-badge {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* Hospital Simulator Styles */
+.hospital-simulator {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.input-section {
+  margin-bottom: 2rem;
+}
+
+.input-card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-field {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* History Section */
+.history-section {
+  margin-top: 40px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.history-card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.history-timestamp {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.history-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.history-input, .history-output {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-section strong {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 4px;
+  min-width: 60px;
+}
+
+.state-badges {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(80px, 1fr));
+  gap: 8px;
+  width: 100%;
+}
+
+.state-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #fff;
+  gap: 4px;
+  text-align: center;
+  min-width: 70px;
+}
+
+.drug-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge Styles */
+.state-badges, .drug-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.state-badge, .drug-badge {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #fff;
+  gap: 4px;
+}
+[class^="state-"]:not(.state-badges),
+[class^="drug-"]:not(.drug-badges) {
+  background-color: #3d3d3d;
+}
+/* State Colors */
+.state-badges .state-F {
+  background-color: #FF7043; /* Bright Orange for Fever */
+}
+
+.state-badges .state-H {
+  background-color: #66BB6A; /* Bright Green for Healthy */
+}
+
+.state-badges .state-D {
+  background-color: #f44336; /* Sky Blue for Diabetes */
+}
+
+.state-badges .state-T {
+  background-color: #8E24AA; /* Deep Purple for Tuberculosis */
+}
+
+.state-badges .state-X {
+  background-color: #757575; /* Dark Gray for Dead */
+}
+
+/* Drug Colors */
+.drug-badges .drug-As,
+.drug-badges .drug-An,
+.drug-badges .drug-I,
+.drug-badges .drug-P {
+  background-color: #7195d4;
+}
+
+/* Unknown state/drug styling */
+.state-unknown,
+.drug-unknown {
+  background-color: #757575; /* Same gray as X state */
+  color: #fff;
+}
+
+
+/* Button Styles */
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #357abd;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  }
+  
+  .input-card, .history-card {
+    background: #2a2a2a;
+    color: rgba(255, 255, 255, 0.87);
+  }
+  
+  .input-field {
+    background: #333;
+    border-color: #444;
+    color: white;
+  }
+  
+  .input-group {
+    background-color: #333;
+  }
+  
+  .history-timestamp {
+    color: #999;
+  }
+  
+  .history-section strong {
+    color: #999;
+  }
+}
+
+/* Action Buttons Container */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0;
+  padding: 16px;
+}
+
+/* Button Styles */
+.action-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.action-button:hover {
+  background-color: #357abd;
+}
+
+.action-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.action-button i {
+  font-size: 1.2rem;
+}
+
+/* Button variants */
+.action-button.fetch {
+  background-color: #4CAF50;
+}
+
+.action-button.fetch:hover {
+  background-color: #45a049;
+}
+
+.action-button.simulate {
+  background-color: #2196F3;
+}
+
+.action-button.simulate:hover {
+  background-color: #1e88e5;
+}
+
+.action-button.auto-refresh.active {
+  background-color: #f44336;
+}
+
+.action-button.auto-refresh.active:hover {
+  background-color: #d32f2f;
+}
+
+/* logo */
+@media (prefers-color-scheme: dark) {
+  .hospital-logo {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4a90e2;
+    padding: 16px;
+  }
+  
+  .hospital-logo i {
+    font-size: 2rem;
+  }
+  
+  .logo-text {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Validation Messages */
+.validation-messages {
+  margin: 16px 0;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.validation-error {
+  color: #f44336;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  padding: 4px 0;
+}
+
+.validation-error i {
+  color: #f44336;
+}
+
+.input-field.error {
+  border-color: #f44336;
+  background-color: rgba(244, 67, 54, 0.05);
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  .validation-messages {
+    background-color: rgba(244, 67, 54, 0.15);
+  }
+  
+  .input-field.error {
+    background-color: rgba(244, 67, 54, 0.1);
+  }
+}
