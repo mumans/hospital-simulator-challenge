@@ -3,3 +3,4 @@ coverage
 .idea
 yarn.lock
 *.log
+dist
