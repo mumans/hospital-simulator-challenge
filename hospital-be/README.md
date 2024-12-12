@@ -83,6 +83,42 @@ Returns a random treatment or combination of treatments.
 
 The API is documented using OpenAPI 3.0 specification. You can find the full API documentation in the `openapi.yaml` file.
 
+## Extending the System
+
+When new states or drugs are added to the hospital-lib, the backend needs to be updated:
+
+1. Update the treatments array in `index.js` to include new drugs:
+```javascript
+const treatments = [
+    '',
+    hospitalLib.Drug.ASPIRIN,
+    // Add your new drug here, e.g.:
+    hospitalLib.Drug.CHEMOTHERAPY,
+    // Add new valid combinations if needed:
+    `${hospitalLib.Drug.CHEMOTHERAPY},${hospitalLib.Drug.INSULIN}`
+];
+```
+
+2. Update the OpenAPI specification in `openapi.yaml`:
+```yaml
+/drugs:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                newTreatment:
+                  value: 'Ch'
+                  summary: Chemotherapy treatment
+```
+
+### Testing
+After making updates:
+1. Start the backend: `yarn start`
+2. Test new endpoints using curl or Postman
+3. Verify random generation includes new states/drugs
+
 ## License
 
 This project is private and intended for technical evaluation only.

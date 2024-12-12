@@ -137,6 +137,68 @@ yarn unlink hospital-lib
 yarn unlink
 ```
 
+## Extending the System
+
+### Adding New Patient States
+1. Add the new state to the `PatientState` enum in `src/types/constants.ts`:
+```typescript
+export enum PatientState {
+    FEVER = "F",
+    HEALTHY = "H",
+    // Add your new state here, e.g.:
+    CANCER = "C"
+}
+```
+
+### Adding New Drugs
+1. Add the new drug to the `Drug` enum in `src/types/constants.ts`:
+```typescript
+export enum Drug {
+    ASPIRIN = "As",
+    // Add your new drug here, e.g.:
+    CHEMOTHERAPY = "Ch"
+}
+```
+
+### Adding New Treatment Rules
+1. Modify the `wait40Days` method in `src/quarantine.ts` to add your new rule:
+```typescript
+wait40Days(): void {
+    // ... existing code ...
+
+    // Add your new rule, e.g.:
+    if (state === PatientState.CANCER) {
+        if (this.drugs.includes(Drug.CHEMOTHERAPY)) {
+            newStates[PatientState.CANCER]--;
+            newStates[PatientState.HEALTHY]++;
+            processedPatients.add(PatientState.CANCER);
+        }
+    }
+}
+```
+
+2. Add tests for the new rule in `src/__tests__/quarantine.spec.ts`:
+```typescript
+it("should cure cancer with chemotherapy", () => {
+    quarantine = new Quarantine({
+        [PatientState.CANCER]: 1,
+        [PatientState.HEALTHY]: 0
+    });
+    quarantine.setDrugs([Drug.CHEMOTHERAPY]);
+    quarantine.wait40Days();
+    expect(quarantine.report()[PatientState.HEALTHY]).toBe(1);
+});
+```
+
+### Required Updates in Other Projects
+After updating the library, you'll need to:
+1. Update the backend - See [hospital-be/README.md#extending-the-system](../hospital-be/README.md#extending-the-system)
+2. Update the frontend - See [hospital-fe/README.md#extending-the-system](../hospital-fe/README.md#extending-the-system)
+
+### Important Notes
+- Always update tests when adding new states or drugs
+- Keep drug interaction rules in mind (e.g., deadly combinations)
+
 ## License
 
 This project is private and intended for technical evaluation only.
